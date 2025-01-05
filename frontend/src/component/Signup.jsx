@@ -7,6 +7,7 @@ const Signup = () => {
     const videoRef = useRef(null);
 
     const startCamera = () => {
+        if(imageUrl === null){
         if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
             navigator.mediaDevices
                 .getUserMedia({ video: true })
@@ -19,6 +20,9 @@ const Signup = () => {
                 .catch((err) => {
                     console.error("Camera access error:", err);
                 });
+        }
+        }else{
+            alert("Image Already Taking, lets register")
         }
     };
 
